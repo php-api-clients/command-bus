@@ -1,10 +1,38 @@
 {
   "name": "api-clients/command-bus",
   "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Cees-Jan Kiewiet",
       "email": "ceesjank@gmail.com"
     }
-  ]
+  ],
+  "require": {
+    "php": "^7.0",
+    "league/tactician": "^1.0",
+    "react/event-loop": "^0.4.2",
+    "wyrihaximus/ticking-promise": "^1.6"
+  },
+  "require-dev": {
+    "api-clients/test-utilities": "dev-master",
+    "clue/block-react": "^1.1",
+    "phake/phake": "^2.3",
+    "phpunit/phpunit": "^5.2.3",
+    "squizlabs/php_codesniffer": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "ApiClients\\Tools\\CommandBus\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ApiClients\\Tests\\Tools\\CommandBus\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
 }
