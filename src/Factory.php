@@ -42,16 +42,20 @@ final class Factory
         /** @var Package $package */
         foreach (packages() as $package) {
             $config = $package->getConfig('extra');
+
+            if ($config === null) {
+                continue;
+            }
+
             $mapping = get_in(
                 $config,
                 [
                     'api-clients',
                     'command-bus'
-                ],
-                false
+                ]
             );
 
-            if ($mapping === false) {
+            if ($mapping === null) {
                 continue;
             }
 
