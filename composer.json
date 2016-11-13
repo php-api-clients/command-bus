@@ -11,8 +11,13 @@
   ],
   "require": {
     "php": "^7.0",
+    "container-interop/container-interop": "^1.1",
+    "igorw/get-in": "^1.0",
+    "joshdifabio/composed": "^1.0",
     "league/tactician": "^1.0",
+    "league/tactician-container": "^1.0",
     "react/event-loop": "^0.4.2",
+    "wyrihaximus/tactician-command-handler-mapper": "^1.0",
     "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
