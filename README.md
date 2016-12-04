@@ -8,7 +8,7 @@
 [![License](https://poser.pugx.org/api-clients/command-bus/license.png)](https://packagist.org/packages/api-clients/command-bus)
 [![PHP 7 ready](http://php7ready.timesplinter.ch/php-api-clients/command-bus/badge.svg)](https://appveyor-ci.org/php-api-clients/command-bus)
 
-Light weight wrapper around league/tactician adding promised based interface(s) and next tick execution.
+Light weight wrapper around [`league/tactician`](http://tactician.thephpleague.com/) adding [`promised`](https://github.com/reactphp/promise) based interface(s) and next tick execution.
 
 # Installation
 
