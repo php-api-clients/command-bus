@@ -1,4 +1,4 @@
-# command-bus
+# Command Bus
 
 [![Linux Build Status](https://travis-ci.org/php-api-clients/command-bus.svg?branch=master)](https://travis-ci.org/php-api-clients/command-bus)
 [![Windows Build status](https://ci.appveyor.com/api/projects/status/dvcu9l8rm6shy7t3?svg=true)](https://ci.appveyor.com/project/php-api-clients/command-bus)
