@@ -1,7 +1,7 @@
 # Command Bus
 
 [![Linux Build Status](https://travis-ci.org/php-api-clients/command-bus.svg?branch=master)](https://travis-ci.org/php-api-clients/command-bus)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/dvcu9l8rm6shy7t3?svg=true)](https://ci.appveyor.com/project/php-api-clients/command-bus)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/g2ru84xmskifri4y?svg=true)](https://ci.appveyor.com/project/php-api-clients/command-bus)
 [![Latest Stable Version](https://poser.pugx.org/api-clients/command-bus/v/stable.png)](https://packagist.org/packages/api-clients/command-bus)
 [![Total Downloads](https://poser.pugx.org/api-clients/command-bus/downloads.png)](https://packagist.org/packages/api-clients/command-bus)
 [![Code Coverage](https://scrutinizer-ci.com/g/php-api-clients/command-bus/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/php-api-clients/command-bus/?branch=master)
