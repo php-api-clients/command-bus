@@ -1,5 +1,6 @@
 {
   "name": "api-clients/command-bus",
+  "description": "Light weight wrapper around league/tactician adding promised based interface(s) and next tick execution",
   "license": "MIT",
   "minimum-stability": "dev",
   "prefer-stable": true,
