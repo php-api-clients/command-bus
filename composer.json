@@ -2,8 +2,6 @@
   "name": "api-clients/command-bus",
   "description": "Light weight wrapper around league/tactician adding promised based interface(s) and next tick execution",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "authors": [
     {
       "name": "Cees-Jan Kiewiet",
@@ -22,7 +20,7 @@
     "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
-    "api-clients/test-utilities": "^1.0",
+    "api-clients/test-utilities": "^2.0",
     "php-di/php-di": "^5.4"
   },
   "autoload": {
