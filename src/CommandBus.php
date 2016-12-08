@@ -9,7 +9,7 @@ use React\Promise\CancellablePromiseInterface;
 use function WyriHaximus\React\futurePromise;
 use function React\Promise\resolve;
 
-final class CommandBus
+final class CommandBus implements CommandBusInterface
 {
     /**
      * @var Tactician
@@ -38,7 +38,7 @@ final class CommandBus
      *
      * @param object $command
      *
-     * @return mixed
+     * @return CancellablePromiseInterface
      */
     public function handle($command): CancellablePromiseInterface
     {
