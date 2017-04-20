@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace ApiClients\Tools\CommandBus;
 
@@ -42,7 +42,7 @@ final class CommandBus implements CommandBusInterface
      */
     public function handle($command): CancellablePromiseInterface
     {
-        return futurePromise($this->loop, $command)->then(function ($command) {
+        return futurePromise($this->loop, $command)->then(function($command) {
             return resolve($this->commandBus->handle($command));
         });
     }
