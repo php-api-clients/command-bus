@@ -7,7 +7,7 @@ use React\Promise\CancellablePromiseInterface;
 interface CommandBusInterface
 {
     /**
-     * Executes the given command and optionally returns a value
+     * Executes the given command and optionally returns a value.
      *
      * @param object $command
      *
