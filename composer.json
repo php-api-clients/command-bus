@@ -21,7 +21,7 @@
   },
   "require-dev": {
     "api-clients/test-utilities": "^4.3",
-    "php-di/php-di": "^5.4"
+    "php-di/php-di": "^6.0"
   },
   "config": {
     "platform": {
