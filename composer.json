@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^7.0",
-    "container-interop/container-interop": "^1.1",
+    "container-interop/container-interop": "^1.2",
     "igorw/get-in": "^1.0",
     "joshdifabio/composed": "^1.0",
     "league/tactician": "^1.0",
