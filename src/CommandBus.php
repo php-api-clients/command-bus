@@ -6,8 +6,8 @@ use League\Tactician\CommandBus as Tactician;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use React\EventLoop\LoopInterface;
 use React\Promise\CancellablePromiseInterface;
-use function WyriHaximus\React\futurePromise;
 use function React\Promise\resolve;
+use function WyriHaximus\React\futurePromise;
 
 final class CommandBus implements CommandBusInterface
 {
@@ -22,7 +22,7 @@ final class CommandBus implements CommandBusInterface
     private $loop;
 
     /**
-     * @param LoopInterface $loop
+     * @param LoopInterface            $loop
      * @param CommandHandlerMiddleware $commandHandlerMiddleware
      */
     public function __construct(LoopInterface $loop, CommandHandlerMiddleware $commandHandlerMiddleware)
@@ -34,7 +34,7 @@ final class CommandBus implements CommandBusInterface
     }
 
     /**
-     * Executes the given command and optionally returns a value
+     * Executes the given command and optionally returns a value.
      *
      * @param object $command
      *

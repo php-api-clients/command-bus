@@ -3,8 +3,6 @@
 namespace ApiClients\Tools\CommandBus;
 
 use Composed\Package;
-use function Composed\packages;
-use function igorw\get_in;
 use League\Tactician\Container\ContainerLocator;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
@@ -12,6 +10,8 @@ use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Psr\Container\ContainerInterface;
 use React\EventLoop\LoopInterface;
 use WyriHaximus\Tactician\CommandHandler\Mapper;
+use function Composed\packages;
+use function igorw\get_in;
 
 final class Factory
 {
@@ -51,7 +51,7 @@ final class Factory
                 $config,
                 [
                     'api-clients',
-                    'command-bus'
+                    'command-bus',
                 ]
             );
 

@@ -8,8 +8,7 @@ cache:
 
 ## PHP versions we test against
 php:
-  - 7.0
-  - 7.1
+  - 7.2
   - nightly
 
 ## Environment variables
@@ -19,11 +18,7 @@ env:
 ## Build matrix for lowest and highest possible targets
 matrix:
   include:
-    - php: 7.0
-      env:
-        - dependencies=lowest
-        - coverage=false
-    - php: 7.1
+    - php: 7.2
       env:
         - dependencies=lowest
         - coverage=false
@@ -31,11 +26,7 @@ matrix:
       env:
         - dependencies=lowest
         - coverage=false
-    - php: 7.0
-      env:
-        - dependencies=highest
-        - coverage=false
-    - php: 7.1
+    - php: 7.2
       env:
         - dependencies=highest
         - coverage=false

@@ -19,6 +19,7 @@ final class CommandBusTest extends TestCase
 
         $command = new class('t-dog') {
             private $t;
+
             public function __construct(string $t)
             {
                 $this->t = $t;
