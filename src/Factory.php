@@ -40,9 +40,13 @@ final class Factory
         );
     }
 
-    private static function resolveMapping(?string $cacheFile): array
+    private static function resolveMapping(?string $cacheFile): iterable
     {
-        $directories = [];
+        yield from Mapping::resolve(self::resolveDirectories(), $cacheFile);
+    }
+
+    private static function resolveDirectories()
+    {
         /** @var Package $package */
         foreach (packages() as $package) {
             $config = $package->getConfig('extra');
@@ -63,9 +67,7 @@ final class Factory
                 continue;
             }
 
-            $directories[$package->getPath($mapping['path'])] = $mapping['namespace'];
+            yield $package->getPath($mapping['path']) => $mapping['namespace'];
         }
-
-        return Mapping::resolve($directories, $cacheFile);
     }
 }

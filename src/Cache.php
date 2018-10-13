@@ -18,15 +18,13 @@ final class Cache
                 yield $command => new Handler($handler);
             }
         } catch (DecodeErrorException $decodeErrorException) {
-            // Do nothing, we'll return an empty array instead
+            yield from [];
         }
-
-        return [];
     }
 
-    public static function write(string $cacheFile, array $mapping): void
+    public static function write(string $cacheFile, array $mapping): bool
     {
-        file_put_contents($cacheFile, json_encode(array_map(function (Handler $handler) {
+        return (bool)file_put_contents($cacheFile, json_encode(array_map(function (Handler $handler) {
             return [
                 $handler->getHandler(),
             ];

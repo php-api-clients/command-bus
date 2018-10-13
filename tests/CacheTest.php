@@ -3,6 +3,7 @@
 namespace ApiClients\Tools\CommandBus;
 
 use ApiClients\Tools\TestUtilities\TestCase;
+use Generator;
 use Test\App\Commands\AwesomesauceCommand;
 use Test\App\Handlers\AwesomesauceHandler;
 use WyriHaximus\Tactician\CommandHandler\Annotations\Handler;
@@ -18,7 +19,8 @@ final class CacheTest extends TestCase
             ]),
         ];
 
-        Cache::write($tmpFile, $mapping);
+        $success = Cache::write($tmpFile, $mapping);
+        self::assertTrue($success);
         self::assertFileExists($tmpFile);
 
         $mappingFromCache = iterator_to_array(Cache::read($tmpFile));
@@ -32,6 +34,10 @@ final class CacheTest extends TestCase
     {
         $tmpFile = $this->getTmpDir() . bin2hex(random_bytes(13)) . '.json';
         touch($tmpFile);
-        self::assertCount(0, Cache::read($tmpFile));
+
+        $mappingFromCache = Cache::read($tmpFile);
+        self::assertInstanceOf(Generator::class, $mappingFromCache);
+        $mappingFromCache = iterator_to_array($mappingFromCache);
+        self::assertCount(0, $mappingFromCache);
     }
 }

@@ -9,7 +9,7 @@ use WyriHaximus\Tactician\CommandHandler\Mapper;
  */
 final class Mapping
 {
-    public static function resolve(array $directories, ?string $cacheFile): iterable
+    public static function resolve(iterable $directories, ?string $cacheFile): iterable
     {
         if ($cacheFile !== null && file_exists($cacheFile)) {
             $commandToHandlerMap = Cache::read($cacheFile);
@@ -27,13 +27,10 @@ final class Mapping
         return $commandToHandlerMap;
     }
 
-    private static function gather(array $directories): iterable
+    private static function gather(iterable $directories): iterable
     {
-        $map = [];
         foreach ($directories as $path => $namespace) {
-            $map += Mapper::map($path, $namespace);
+            yield from Mapper::map($path, $namespace);
         }
-
-        return $map;
     }
 }
