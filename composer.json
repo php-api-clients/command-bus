@@ -10,8 +10,6 @@
   ],
   "require": {
     "php": "^7.2",
-    "container-interop/container-interop": "^1.1",
-    "php": "^7.0",
     "container-interop/container-interop": "^1.2",
     "igorw/get-in": "^1.0",
     "joshdifabio/composed": "^1.0",
@@ -25,6 +23,12 @@
     "api-clients/test-utilities": "^5.1",
     "php-di/php-di": "^5.4"
   },
+  "config": {
+    "platform": {
+      "php": "7.2"
+    },
+    "sort-packages": true
+  },
   "autoload": {
     "psr-4": {
       "ApiClients\\Tools\\CommandBus\\": "src/"
@@ -35,13 +39,13 @@
       "ApiClients\\Tests\\Tools\\CommandBus\\": "tests/"
     }
   },
-  "config": {
-    "sort-packages": true,
-    "platform": {
-      "php": "7.2"
-    }
-  },
   "scripts": {
+    "post-update-cmd": [
+      "composer normalize"
+    ],
+    "post-install-cmd": [
+      "composer normalize"
+    ],
     "ensure-installed": "composer install --ansi -n -q",
     "cs": [
       "@ensure-installed",
@@ -63,15 +67,24 @@
       "@ensure-installed",
       "parallel-lint --exclude vendor ."
     ],
+    "infection": [
+      "@ensure-installed",
+      "infection --ansi --threads=4"
+    ],
     "qa-all": [
+      "composer validate --ansi",
+      "composer normalize --ansi",
       "@lint-php",
       "@cs",
       "@unit"
     ],
-    "qa-all-coverage": [
+    "qa-all-extended": [
+      "composer validate --ansi",
+      "composer normalize --ansi",
       "@lint-php",
       "@cs",
-      "@unit-coverage"
+      "@unit-coverage",
+      "@infection"
     ],
     "qa-windows": [
       "@lint-php",
@@ -82,7 +95,7 @@
       "@unit"
     ],
     "qa-ci-extended": [
-      "@qa-all-coverage"
+      "@qa-all-extended"
     ],
     "qa-ci-windows": [
       "@qa-windows"
