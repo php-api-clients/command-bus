@@ -17,7 +17,7 @@
     "league/tactician": "^1.0",
     "league/tactician-container": "^2.0 || ^1.0",
     "react/event-loop": "^1.0 || ^0.5 || ^0.4.2",
-    "wyrihaximus/tactician-command-handler-mapper": "^1.0",
+    "wyrihaximus/tactician-command-handler-mapper": "^2.0",
     "wyrihaximus/ticking-promise": "^1.6"
   },
   "require-dev": {
