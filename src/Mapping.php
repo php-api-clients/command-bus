@@ -2,6 +2,7 @@
 
 namespace ApiClients\Tools\CommandBus;
 
+use PackageVersions\Versions;
 use WyriHaximus\Tactician\CommandHandler\Mapper;
 
 /**
@@ -29,8 +30,21 @@ final class Mapping
 
     private static function gather(iterable $directories): iterable
     {
+        $mapperVersion = version_compare(
+            explode(
+                '@',
+                Versions::getVersion('wyrihaximus/tactician-command-handler-mapper')
+            )[0],
+            '2.0.0',
+            '<'
+        );
+
         foreach ($directories as $path => $namespace) {
-            yield from Mapper::map($path, $namespace);
+            $args = [$path];
+            if ($mapperVersion) {
+                $args[] = $namespace;
+            }
+            yield from Mapper::map(...$args);
         }
     }
 }
