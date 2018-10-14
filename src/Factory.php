@@ -11,7 +11,7 @@ use Psr\Container\ContainerInterface;
 use React\EventLoop\LoopInterface;
 use Traversable;
 use function Composed\packages;
-use function igorw\get_in;
+use function WyriHaximus\getIn;
 
 final class Factory
 {
@@ -55,13 +55,7 @@ final class Factory
                 continue;
             }
 
-            $mapping = get_in(
-                $config,
-                [
-                    'api-clients',
-                    'command-bus',
-                ]
-            );
+            $mapping = getIn($config, 'api-clients.command-bus');
 
             if ($mapping === null) {
                 continue;

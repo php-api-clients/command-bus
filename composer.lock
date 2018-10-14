@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc27a88d4e18acfb0a9289f4993c2762",
+    "content-hash": "56757740d9a85b40911eaee7c2893fd6",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1006,6 +1006,46 @@
             ],
             "description": "List all classes in the given directory",
             "time": "2018-10-13T22:44:15+00:00"
+        },
+        {
+            "name": "wyrihaximus/string-get-in",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WyriHaximus/php-string-get-in.git",
+                "reference": "649eea6067e1caed118ea9e67b9ed703ad1a1ba8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WyriHaximus/php-string-get-in/zipball/649eea6067e1caed118ea9e67b9ed703ad1a1ba8",
+                "reference": "649eea6067e1caed118ea9e67b9ed703ad1a1ba8",
+                "shasum": ""
+            },
+            "require": {
+                "igorw/get-in": "^1.0.3",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "api-clients/test-utilities": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "ceesjank@gmail.com"
+                }
+            ],
+            "description": "Wrapper around igorw/get-in using strings rather then arrays are keys",
+            "time": "2018-10-14T15:34:54+00:00"
         },
         {
             "name": "wyrihaximus/tactician-command-handler-mapper",
