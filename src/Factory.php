@@ -9,15 +9,19 @@ use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Psr\Container\ContainerInterface;
 use React\EventLoop\LoopInterface;
-use WyriHaximus\Tactician\CommandHandler\Mapper;
+use Traversable;
 use function Composed\packages;
 use function igorw\get_in;
 
 final class Factory
 {
-    public static function create(ContainerInterface $container)
+    public static function create(ContainerInterface $container, array $options = [])
     {
-        $commandToHandlerMap = self::gatherMapping();
+        $commandToHandlerMap = self::resolveMapping($options[Options::COMMAND_HANDLER_MAP_CACHE_FILE] ?? null);
+
+        if ($commandToHandlerMap instanceof Traversable) {
+            $commandToHandlerMap = iterator_to_array($commandToHandlerMap);
+        }
 
         $containerLocator = new ContainerLocator(
             $container,
@@ -36,9 +40,13 @@ final class Factory
         );
     }
 
-    private static function gatherMapping()
+    private static function resolveMapping(?string $cacheFile): iterable
     {
-        $map = [];
+        yield from Mapping::resolve(self::resolveDirectories(), $cacheFile);
+    }
+
+    private static function resolveDirectories()
+    {
         /** @var Package $package */
         foreach (packages() as $package) {
             $config = $package->getConfig('extra');
@@ -59,9 +67,7 @@ final class Factory
                 continue;
             }
 
-            $map += Mapper::map($package->getPath($mapping['path']), $mapping['namespace']);
+            yield $package->getPath($mapping['path']) => $mapping['namespace'];
         }
-
-        return $map;
     }
 }
