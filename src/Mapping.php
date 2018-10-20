@@ -13,15 +13,17 @@ final class Mapping
     public static function resolve(iterable $directories, ?string $cacheFile): iterable
     {
         if ($cacheFile !== null && file_exists($cacheFile)) {
-            $commandToHandlerMap = Cache::read($cacheFile);
-            if (count($commandToHandlerMap) > 0) {
-                return $commandToHandlerMap;
+            try {
+                return Cache::read($cacheFile);
+            } catch (\Throwable $et) {
+                // void
             }
         }
 
         $commandToHandlerMap = self::gather($directories);
 
         if ($cacheFile !== null && is_dir(dirname($cacheFile))) {
+            $commandToHandlerMap = iterator_to_array($commandToHandlerMap);
             Cache::write($cacheFile, $commandToHandlerMap);
         }
 
