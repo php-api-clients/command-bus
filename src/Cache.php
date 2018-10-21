@@ -9,7 +9,7 @@ final class Cache
 {
     public static function read(string $cacheFile): iterable
     {
-        return json_try_decode(file_get_contents($cacheFile));
+        return json_try_decode(file_get_contents($cacheFile), true);
     }
 
     public static function write(string $cacheFile, array $mapping): bool
