@@ -11,9 +11,12 @@ use React\EventLoop\Factory;
 use function Clue\React\Block\await;
 use function React\Promise\resolve;
 
+/**
+ * @internal
+ */
 final class CommandBusTest extends TestCase
 {
-    public function testHandle()
+    public function testHandle(): void
     {
         $loop = Factory::create();
 
@@ -32,7 +35,7 @@ final class CommandBusTest extends TestCase
         };
 
         $commandToHandlerMap = [
-            get_class($command) => new class() {
+            \get_class($command) => new class() {
                 public function handle($command)
                 {
                     return resolve($command);

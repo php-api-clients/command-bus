@@ -13,7 +13,7 @@ final class Mapping
 {
     public static function resolve(iterable $directories, ?string $cacheFile): iterable
     {
-        if ($cacheFile !== null && file_exists($cacheFile)) {
+        if ($cacheFile !== null && \file_exists($cacheFile)) {
             try {
                 return Cache::read($cacheFile);
             } catch (\Throwable $et) {
@@ -23,6 +23,8 @@ final class Mapping
 
         $commandToHandlerMap = self::gather($directories);
 
+        if ($cacheFile !== null && \is_dir(\dirname($cacheFile))) {
+            $commandToHandlerMap = \iterator_to_array($commandToHandlerMap);
         if ($cacheFile !== null && is_dir(dirname($cacheFile))) {
             $commandToHandlerMap = iteratorOrArrayToArray($commandToHandlerMap);
             Cache::write($cacheFile, $commandToHandlerMap);
@@ -33,8 +35,8 @@ final class Mapping
 
     private static function gather(iterable $directories): iterable
     {
-        $mapperVersion = version_compare(
-            explode(
+        $mapperVersion = \version_compare(
+            \explode(
                 '@',
                 Versions::getVersion('wyrihaximus/tactician-command-handler-mapper')
             )[0],

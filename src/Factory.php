@@ -20,7 +20,7 @@ final class Factory
         $commandToHandlerMap = self::resolveMapping($options[Options::COMMAND_HANDLER_MAP_CACHE_FILE] ?? null);
 
         if ($commandToHandlerMap instanceof Traversable) {
-            $commandToHandlerMap = iterator_to_array($commandToHandlerMap);
+            $commandToHandlerMap = \iterator_to_array($commandToHandlerMap);
         }
 
         $containerLocator = new ContainerLocator(

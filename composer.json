@@ -44,13 +44,15 @@
     }
   },
   "scripts": {
-    "post-update-cmd": [
-      "composer normalize"
-    ],
     "post-install-cmd": [
       "composer normalize"
     ],
-    "ensure-installed": "composer install --ansi -n -q",
+    "post-update-cmd": [
+      "composer normalize"
+    ],
+    "ci-coverage": [
+      "if [ -f ./build/logs/clover.xml ]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover ./build/logs/clover.xml; fi"
+    ],
     "cs": [
       "@ensure-installed",
       "php-cs-fixer fix --config=.php_cs --ansi --dry-run --diff --verbose --allow-risky=yes --show-progress=estimating"
@@ -59,21 +61,14 @@
       "@ensure-installed",
       "php-cs-fixer fix --config=.php_cs --ansi --verbose --allow-risky=yes --show-progress=estimating"
     ],
-    "unit": [
+    "ensure-installed": "composer install --ansi -n -q",
+    "infection": [
       "@ensure-installed",
-      "phpunit --colors=always -c phpunit.xml.dist"
-    ],
-    "unit-coverage": [
-      "@ensure-installed",
-      "phpunit --colors=always -c phpunit.xml.dist --coverage-text --coverage-html covHtml --coverage-clover ./build/logs/clover.xml"
+      "infection --ansi --threads=4"
     ],
     "lint-php": [
       "@ensure-installed",
       "parallel-lint --exclude vendor ."
-    ],
-    "infection": [
-      "@ensure-installed",
-      "infection --ansi --threads=4"
     ],
     "qa-all": [
       "composer validate --ansi",
@@ -90,11 +85,6 @@
       "@unit-coverage",
       "@infection"
     ],
-    "qa-windows": [
-      "@lint-php",
-      "@cs",
-      "@unit"
-    ],
     "qa-ci": [
       "@unit"
     ],
@@ -107,8 +97,18 @@
     "qa-contrib": [
       "@qa-all"
     ],
-    "ci-coverage": [
-      "if [ -f ./build/logs/clover.xml ]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover ./build/logs/clover.xml; fi"
+    "qa-windows": [
+      "@lint-php",
+      "@cs",
+      "@unit"
+    ],
+    "unit": [
+      "@ensure-installed",
+      "phpunit --colors=always -c phpunit.xml.dist"
+    ],
+    "unit-coverage": [
+      "@ensure-installed",
+      "phpunit --colors=always -c phpunit.xml.dist --coverage-text --coverage-html covHtml --coverage-clover ./build/logs/clover.xml"
     ]
   }
 }
