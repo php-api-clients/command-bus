@@ -6,9 +6,12 @@ use ApiClients\Tools\TestUtilities\TestCase;
 use DI\ContainerBuilder;
 use React\EventLoop\LoopInterface;
 
+/**
+ * @internal
+ */
 final class FactoryTest extends TestCase
 {
-    public function testCreate()
+    public function testCreate(): void
     {
         $container = ContainerBuilder::buildDevContainer();
         $container->set(LoopInterface::class, $this->prophesize(LoopInterface::class)->reveal());

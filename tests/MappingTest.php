@@ -6,14 +6,17 @@ use ApiClients\Tools\TestUtilities\TestCase;
 use Test\App\Commands\AwesomesauceCommand;
 use Test\App\Handlers\AwesomesauceHandler;
 
+/**
+ * @internal
+ */
 final class MappingTest extends TestCase
 {
-    public function testResolve()
+    public function testResolve(): void
     {
-        $mapping = iterator_to_array(
+        $mapping = \iterator_to_array(
             Mapping::resolve(
                 [
-                    dirname(__DIR__) . DIRECTORY_SEPARATOR . 'test-app' . DIRECTORY_SEPARATOR => 'Test\App',
+                    \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'test-app' . DIRECTORY_SEPARATOR => 'Test\App',
                 ],
                 null
             )

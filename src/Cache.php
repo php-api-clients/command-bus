@@ -9,11 +9,11 @@ final class Cache
 {
     public static function read(string $cacheFile): iterable
     {
-        return json_try_decode(file_get_contents($cacheFile), true);
+        return json_try_decode(\file_get_contents($cacheFile), true);
     }
 
     public static function write(string $cacheFile, array $mapping): bool
     {
-        return (bool)file_put_contents($cacheFile, json_encode($mapping));
+        return (bool)\file_put_contents($cacheFile, \json_encode($mapping));
     }
 }
