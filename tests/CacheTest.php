@@ -6,6 +6,7 @@ use ApiClients\Tools\TestUtilities\TestCase;
 use Generator;
 use Test\App\Commands\AwesomesauceCommand;
 use Test\App\Handlers\AwesomesauceHandler;
+use function WyriHaximus\iteratorOrArrayToArray;
 use WyriHaximus\Tactician\CommandHandler\Annotations\Handler;
 
 final class CacheTest extends TestCase
@@ -23,7 +24,7 @@ final class CacheTest extends TestCase
         self::assertTrue($success);
         self::assertFileExists($tmpFile);
 
-        $mappingFromCache = iterator_to_array(Cache::read($tmpFile));
+        $mappingFromCache = iteratorOrArrayToArray(Cache::read($tmpFile));
         self::assertCount(1, $mappingFromCache);
         self::assertTrue(isset($mappingFromCache[AwesomesauceCommand::class]));
         self::assertInstanceOf(Handler::class, $mappingFromCache[AwesomesauceCommand::class]);

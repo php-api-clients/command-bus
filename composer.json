@@ -17,6 +17,7 @@
     "league/tactician-container": "^2.0 || ^1.0",
     "ocramius/package-versions": "^1.3",
     "react/event-loop": "^1.0 || ^0.5 || ^0.4.2",
+    "wyrihaximus/iterator-or-array-to-array": "^1.0",
     "wyrihaximus/string-get-in": "^1.0",
     "wyrihaximus/tactician-command-handler-mapper": "^2.0.1 || ^1.0",
     "wyrihaximus/ticking-promise": "^1.6"

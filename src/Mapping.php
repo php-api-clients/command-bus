@@ -3,6 +3,7 @@
 namespace ApiClients\Tools\CommandBus;
 
 use PackageVersions\Versions;
+use function WyriHaximus\iteratorOrArrayToArray;
 use WyriHaximus\Tactician\CommandHandler\Mapper;
 
 /**
@@ -23,7 +24,7 @@ final class Mapping
         $commandToHandlerMap = self::gather($directories);
 
         if ($cacheFile !== null && is_dir(dirname($cacheFile))) {
-            $commandToHandlerMap = iterator_to_array($commandToHandlerMap);
+            $commandToHandlerMap = iteratorOrArrayToArray($commandToHandlerMap);
             Cache::write($cacheFile, $commandToHandlerMap);
         }
 
