@@ -6,8 +6,8 @@ use ApiClients\Tools\TestUtilities\TestCase;
 use Generator;
 use Test\App\Commands\AwesomesauceCommand;
 use Test\App\Handlers\AwesomesauceHandler;
-use function WyriHaximus\iteratorOrArrayToArray;
 use WyriHaximus\Tactician\CommandHandler\Annotations\Handler;
+use function WyriHaximus\iteratorOrArrayToArray;
 
 /**
  * @internal
