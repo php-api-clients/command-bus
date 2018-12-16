@@ -18,9 +18,7 @@ final class CacheTest extends TestCase
     {
         $tmpFile = $this->getTmpDir() . \bin2hex(\random_bytes(13)) . '.json';
         $mapping = [
-            AwesomesauceCommand::class => new Handler([
-                AwesomesauceHandler::class,
-            ]),
+            AwesomesauceCommand::class => AwesomesauceHandler::class,
         ];
 
         $success = Cache::write($tmpFile, $mapping);
@@ -30,8 +28,7 @@ final class CacheTest extends TestCase
         $mappingFromCache = iteratorOrArrayToArray(Cache::read($tmpFile));
         self::assertCount(1, $mappingFromCache);
         self::assertTrue(isset($mappingFromCache[AwesomesauceCommand::class]));
-        self::assertInstanceOf(Handler::class, $mappingFromCache[AwesomesauceCommand::class]);
-        self::assertSame(AwesomesauceHandler::class, $mappingFromCache[AwesomesauceCommand::class]->getHandler());
+        self::assertSame(AwesomesauceHandler::class, $mappingFromCache[AwesomesauceCommand::class]);
     }
 
     public function testReadNonExistent(): void
