@@ -3,10 +3,10 @@
 namespace ApiClients\Tools\CommandBus;
 
 use ApiClients\Tools\TestUtilities\TestCase;
+use ExceptionalJSON\DecodeErrorException;
 use Generator;
 use Test\App\Commands\AwesomesauceCommand;
 use Test\App\Handlers\AwesomesauceHandler;
-use WyriHaximus\Tactician\CommandHandler\Annotations\Handler;
 use function WyriHaximus\iteratorOrArrayToArray;
 
 /**
@@ -33,6 +33,8 @@ final class CacheTest extends TestCase
 
     public function testReadNonExistent(): void
     {
+        self::expectException(DecodeErrorException::class);
+
         $tmpFile = $this->getTmpDir() . \bin2hex(\random_bytes(13)) . '.json';
         \touch($tmpFile);
 
