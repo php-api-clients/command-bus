@@ -41,7 +41,7 @@ final class CacheTest extends TestCase
 
         $mappingFromCache = Cache::read($tmpFile);
         self::assertInstanceOf(Generator::class, $mappingFromCache);
-        $mappingFromCache = \iterator_to_array($mappingFromCache);
+        $mappingFromCache = iteratorOrArrayToArray($mappingFromCache);
         self::assertCount(0, $mappingFromCache);
     }
 }

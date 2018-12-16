@@ -9,19 +9,16 @@ use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Psr\Container\ContainerInterface;
 use React\EventLoop\LoopInterface;
-use Traversable;
 use function Composed\packages;
 use function WyriHaximus\getIn;
+use function WyriHaximus\iteratorOrArrayToArray;
 
 final class Factory
 {
     public static function create(ContainerInterface $container, array $options = [])
     {
         $commandToHandlerMap = self::resolveMapping($options[Options::COMMAND_HANDLER_MAP_CACHE_FILE] ?? null);
-
-        if ($commandToHandlerMap instanceof Traversable) {
-            $commandToHandlerMap = \iterator_to_array($commandToHandlerMap);
-        }
+        $commandToHandlerMap = iteratorOrArrayToArray($commandToHandlerMap);
 
         $containerLocator = new ContainerLocator(
             $container,
