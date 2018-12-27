@@ -17,7 +17,7 @@ final class MappingTest extends TestCase
         $mapping = iteratorOrArrayToArray(
             Mapping::resolve(
                 [
-                    \dirname(__DIR__) . DIRECTORY_SEPARATOR . 'test-app' . DIRECTORY_SEPARATOR => 'Test\App',
+                    \dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'test-app' . \DIRECTORY_SEPARATOR => 'Test\App',
                 ],
                 null
             )
