@@ -3,12 +3,12 @@
 namespace ApiClients\Tools\CommandBus;
 
 use ApiClients\Tools\TestUtilities\TestCase;
+use function Clue\React\Block\await;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\Locator\InMemoryLocator;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use React\EventLoop\Factory;
-use function Clue\React\Block\await;
 use function React\Promise\resolve;
 
 /**
