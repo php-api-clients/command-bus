@@ -3,8 +3,8 @@
 namespace ApiClients\Tools\CommandBus;
 
 use PackageVersions\Versions;
-use WyriHaximus\Tactician\CommandHandler\Mapper;
 use function WyriHaximus\iteratorOrArrayToArray;
+use WyriHaximus\Tactician\CommandHandler\Mapper;
 
 /**
  * @internal

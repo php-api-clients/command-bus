@@ -3,13 +3,13 @@
 namespace ApiClients\Tools\CommandBus;
 
 use Composed\Package;
+use function Composed\packages;
 use League\Tactician\Container\ContainerLocator;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 use Psr\Container\ContainerInterface;
 use React\EventLoop\LoopInterface;
-use function Composed\packages;
 use function WyriHaximus\getIn;
 use function WyriHaximus\iteratorOrArrayToArray;
 
