@@ -20,7 +20,7 @@
     "wyrihaximus/iterator-or-array-to-array": "^1.0",
     "wyrihaximus/string-get-in": "^1.0",
     "wyrihaximus/tactician-command-handler-mapper": "^2.0.1 || ^1.0",
-    "wyrihaximus/ticking-promise": "^1.6"
+    "wyrihaximus/ticking-promise": "^2 || ^1.6"
   },
   "require-dev": {
     "api-clients/test-utilities": "^5.4",
@@ -44,12 +44,6 @@
     }
   },
   "scripts": {
-    "post-install-cmd": [
-      "composer normalize"
-    ],
-    "post-update-cmd": [
-      "composer normalize"
-    ],
     "ci-coverage": [
       "if [ -f ./build/logs/clover.xml ]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover ./build/logs/clover.xml; fi"
     ],
