@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7a08c6dbb720918e98b4ab0efd5b53f",
+    "content-hash": "d798fcaaddeef251e2ea3a80ed0d7f7e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1242,6 +1242,10 @@
                 }
             ],
             "description": "Wrapping ticks into a promise",
+            "support": {
+                "issues": "https://github.com/WyriHaximus/TickingPromise/issues",
+                "source": "https://github.com/WyriHaximus/TickingPromise/tree/master"
+            },
             "time": "2018-04-05T12:36:50+00:00"
         }
     ],
@@ -6469,5 +6473,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.2"
-    }
+    },
+    "plugin-api-version": "2.0.0"
 }
